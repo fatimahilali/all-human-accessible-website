@@ -1,0 +1,132 @@
+/*
+Project: Redpers
+Ontwikkelaar: Fatima Elhilali
+Beschrijving: Deze code is ontworpen om een responsieve en toegankelijke website te creëren, 
+die gebruiksvriendelijk is voor mensen met beperkingen. De focus ligt op het optimaliseren van 
+de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toegankelijkheidsbehoeften.
+
+*/
+
+/* Algemene reset van marges en padding en instelling van box-sizing voor alle elementen */
+* {
+    margin: 0; /* Verwijdert alle standaardmarges */
+    padding: 0; /* Verwijdert alle standaardpadding */
+    box-sizing: border-box; /* Zorgt ervoor dat padding en border bij de breedte en hoogte worden inbegrepen */
+}
+
+/* Achtergrondkleur en lettertype voor de body van de pagina */
+body {
+    font-family: Arial, sans-serif; /* Instellen van een basis lettertype voor de hele pagina */
+}
+
+/* Styling voor het artikel: centrale uitlijning, padding en marges */
+.article {
+    text-align: center; /* Centreert de inhoud van de tekst */
+    padding: 1.25rem 0; /* Voegt verticale padding toe boven en onder de sectie */
+    max-width: 50rem; /* Beperkt de breedte van de sectie tot 50 rem */
+    margin: 0 auto; /* Centreert de sectie horizontaal */
+    margin-top: 6.25rem; /* Voegt extra ruimte boven de sectie toe */
+}
+
+/* Titel van het artikel met responsieve styling */
+.article-title {
+    font-family: 'Tiempos Headline', serif; /* Instellen van een speciaal lettertype voor de titel */
+    font-size: clamp(1.5rem, 5vw, 2.8125rem); /* Responsieve tekstgrootte: past zich aan op basis van schermbreedte */
+    font-weight: 900; /* Extra vetgedrukte tekst */
+    line-height: 0.9; /* Verkleint de ruimte tussen de tekstregels */
+    letter-spacing: -0.03125rem; /* Verkleint de ruimte tussen de letters */
+    color: black; /* Zwarte kleur voor de titel */
+    margin: 0; /* Geen extra marges rond de titel */
+    padding-bottom: 1.25rem; /* Voegt wat ruimte onder de titel toe */
+    display: inline-block; /* Zorgt ervoor dat de titel inline is maar als blokelement wordt behandeld */
+}
+
+/* Styling voor afbeeldingen binnen het artikel */
+.article-image {
+    max-width: 100%; /* Beperkt de breedte van de afbeelding tot 100% van de container */
+    height: auto; /* Zorgt ervoor dat de hoogte proportioneel blijft bij het schalen van de afbeelding */
+    margin-top: clamp(1rem, 4vw, 3rem); /* Voegt een responsieve marge boven de afbeelding toe */
+}
+
+/* Styling voor de categorie en datum/tijd informatie onder de afbeelding */
+.article-info {
+    display: flex; /* Zorgt voor een flexibele layout voor de elementen in deze sectie */
+    justify-content: flex-start; /* Zorgt ervoor dat de elementen aan de linkerkant beginnen */
+    margin-top: clamp(2rem, 5vw, 4rem); /* Voegt een responsieve marge boven de sectie toe */
+    margin-left: clamp(0.5rem, 2vw, 1rem); /* Voegt een responsieve marge links toe */
+    font-size: clamp(0.75rem, 2vw, 0.875rem); /* Past de tekstgrootte aan op basis van schermbreedte */
+    color: #333; /* Donkergrijze kleur voor de tekst */
+    position: relative; /* Zorgt ervoor dat het element relatief ten opzichte van zichzelf kan worden gepositioneerd */
+    right: clamp(-0.5rem, -1vw, -1rem); /* Verschuift de sectie iets naar rechts, responsief */
+}
+
+/* Styling voor de categorie tekst binnen de artikel-informatie */
+.article-info .category {
+    font-weight: bold; /* Vetgedrukt om de categorie te benadrukken */
+    color: #D04F3B; /* Specifieke kleur voor de categorie (bijv. "BINNENLAND") */
+    margin-right: 0.5rem; /* Ruimte tussen de categorie en de datum/tijd */
+}
+
+/* Styling voor de datum/tijd binnen de artikel-informatie */
+.article-info .date-time {
+    color: #333; /* Zelfde donkergrijze kleur als de rest van de informatie */
+}
+
+/* tekst onder het artikel, met aangepaste opmaak */
+.additional-text {
+    font-family: "Inter", Sans-serif; /* Zelfde lettertype als andere secties */
+    font-size: clamp(1.5rem, 2vw, 1.5rem); /* Responsieve tekstgrootte: past zich aan op basis van schermgrootte */
+    font-weight: 300; /* Lichtgewicht tekst */
+    line-height: clamp(2.1875rem, 3vw, 2.1875rem); /* Responsieve regelafstand: past zich aan op basis van schermgrootte */
+    color: #333; /* Donkergrijze kleur voor de tekst */
+    margin-top: 0.75rem; /* Ruimte boven de extra tekst */
+    max-width: 50rem; /* Beperkt de breedte van de tekst tot 50 rem */
+    text-align: left; /* Uitlijning van de tekst naar links */
+    padding: clamp(1rem, 2vw, 2rem); /* Responsieve padding rond de tekst */
+}
+
+
+/* informatie sectie styling */
+.extra-info {
+    display: flex; /* Maakt de sectie een flex-container */
+    flex-direction: column; /* Zet de inhoud in een kolomopmaak */
+    margin-top: 1rem; /* Voegt ruimte boven de sectie toe */
+    max-width: 42rem; /* Beperkt de breedte van de sectie */
+    margin-left: 3rem; /* Verschuift de sectie iets naar rechts */
+}
+
+/* Styling voor elk informatieblok in de extra-info sectie */
+.extra-info .article-info {
+    display: flex; /* Zet de inhoud van elk blok in een flexibele rij */
+    justify-content: flex-start; /* Plaatst de items aan de linkerkant */
+    font-size: clamp(0.75rem, 2vw, 0.875rem); /* Zorgt voor responsieve tekstgrootte */
+    color: #333; /* Stelt de tekstkleur in op donkergrijs */
+    text-transform: uppercase; /* Zet de tekst om in hoofdletters */
+    letter-spacing: 0.1rem; /* Vergroot de afstand tussen de letters */
+    padding: 0.5rem 0; /* Voegt padding toe boven en onder de tekst */
+    border-bottom: 0.0625rem solid black; /* Vervangt px door rem voor een responsieve onderlijn */
+}
+
+/* Voegt een bovenlijn toe aan de eerste sectie van extra-info */
+.extra-info .top-border {
+    border-top: 0.0625rem solid black; /* Vervangt px door rem voor een responsieve bovenlijn */
+}
+
+/* Styling voor het laatste informatieblok in extra-info */
+.extra-info .article-info:last-child {
+    border-bottom: 0.0625rem solid black; /* Vervangt px door rem voor de onderlijn van het laatste blok */
+    margin-top: 0.4rem; /* Zorgt voor extra ruimte boven het laatste blok */
+}
+
+/* Styling voor de categorie tekst binnen elk informatieblok */
+.extra-info .category {
+    font-weight: normal; /* Zorgt ervoor dat de categorie tekst niet vetgedrukt is */
+    color: #333; /* Stelt de tekstkleur in op donkergrijs */
+    margin-right: 0.5rem; /* Voegt ruimte toe rechts van de categorie tekst */
+}
+
+/* Vetgedrukte styling voor de auteur en leestijd binnen de informatieblokken */
+.extra-info .author,
+.extra-info .reading-time {
+    font-weight: bold; /* Maakt de tekst van de auteur en leestijd vetgedrukt */
+}
