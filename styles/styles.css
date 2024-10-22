@@ -509,3 +509,96 @@ a:hover, button:hover {
         flex: 1 1 100%; /* Laat elk artikel de volledige breedte innemen op kleinere schermen */
     }
 }
+
+
+/* Footer styling */
+.responsive-footer {
+    background-color: #141415; /* Donkere achtergrondkleur voor de footer */
+    color: #f5f5f5; /* Lichte tekstkleur voor contrast */
+    padding: clamp(3rem, 5vw, 5rem); /* Responsieve padding */
+    margin-top: clamp(6.25rem, 20vw, 15rem); /* Ruimte boven de footer */
+    display: flex; /* Flex-container */
+    flex-direction: column; /* Inhoud in kolommen */
+    align-items: center; /* Centreert de inhoud */
+    justify-content: center; /* Centreert de inhoud */
+    border-top: 0.0625rem solid #333; /* Subtiele bovenlijn voor scheiding */
+}
+
+/* Wrapper voor de footer-inhoud */
+.footer-content {
+    display: flex; /* Flexbox om de kolommen naast elkaar te plaatsen */
+    justify-content: space-between; /* Ruimte tussen de kolommen verdelen */
+    width: 100%; /* Volledige breedte gebruiken */
+    max-width: 68.75rem; /* Maximale breedte van 1100px vervangen door rem voor responsiviteit */
+    text-align: left; /* Linkeruitlijning voor de tekst */
+    flex-wrap: wrap; /* Zorgt dat kolommen afbreken naar de volgende regel op kleinere schermen */
+}
+
+/* Logo-sectie van de footer */
+.footer-logo-section {
+    flex-basis: 25%; /* 25% van de beschikbare breedte innemen */
+    margin-bottom: clamp(1rem, 5vw, 2rem); /* Responsieve marge onder het logo voor kleinere schermen */
+}
+
+/* Footer-logo styling */
+.footer-logo {
+    width: clamp(4rem, 10vw, 6.25rem); /* Logo responsief maken met breedtes tussen 4rem en 6.25rem */
+    margin-bottom: clamp(0.5rem, 3vw, 1rem); /* Responsieve marge onder het logo */
+}
+
+/* Footer-motto styling */
+.footer-motto {
+    font-size: clamp(0.75rem, 2vw, 0.9rem); /* Responsieve tekstgrootte, variërend van 0.75rem tot 0.9rem */
+    color: #fff; /* Lichtgrijze kleur voor de tekst */
+    line-height: 1.5; /* Standaard regelhoogte voor leesbaarheid */
+}
+
+/* Wrapper voor de kolommen in de footer */
+.footer-columns {
+    display: flex; /* Flexbox om de kolommen naast elkaar te plaatsen */
+    justify-content: space-between; /* Ruimte tussen de kolommen gelijkmatig verdelen */
+    flex-basis: 75%; /* 75% van de beschikbare breedte innemen */
+    flex-wrap: wrap; /* Zorgt dat kolommen afbreken naar de volgende regel op kleinere schermen */
+}
+
+/* Styling voor elke kolom in de footer */
+.footer-column {
+    flex-basis: calc(25% - 1rem); /* Responsieve kolombreedte, 25% minus ruimte ertussen */
+    margin-bottom: clamp(1rem, 4vw, 2rem); /* Responsieve marge onder de kolommen op kleinere schermen */
+}
+
+/* Titel van elke kolom */
+.footer-column h3 {
+    font-size: clamp(0.875rem, 2vw, 1rem); /* Responsieve tekstgrootte, variërend van 0.875rem tot 1rem */
+    color: #fff; /* Witte kleur voor de titels */
+    margin-bottom: clamp(0.5rem, 2vw, 1rem); /* Responsieve marge onder de titel */
+    font-weight: bold; /* Vetgedrukte titels */
+}
+
+/* Lijst in de footer kolom (zonder opsommingstekens) */
+.footer-column ul {
+    list-style: none; /* Verwijder opsommingstekens */
+    padding: 0; /* Geen extra padding */
+    margin: 0; /* Geen extra marge */
+}
+
+/* Styling voor elk lijstitem in de kolommen */
+.footer-column ul li {
+    margin-bottom: clamp(0.5rem, 2vw, 0.5rem); /* Responsieve ruimte tussen de lijstitems */
+}
+
+/* Styling voor de links in de lijstitems */
+.footer-column ul li a {
+    color: #fff; /* Lichtgrijze kleur voor de links */
+    text-decoration: none; /* Geen onderstreping */
+    font-size: clamp(0.75rem, 2vw, 0.85rem); /* Responsieve tekstgrootte voor de links */
+    transition: color 0.3s ease; /* Soepele overgang van kleur bij hover */
+}
+
+/* Hover-effect voor links */
+.footer-column ul li a:hover {
+    color: #E15746; /* Kleurverandering naar donkeroranje-rood bij hover */
+}
+
+
+
