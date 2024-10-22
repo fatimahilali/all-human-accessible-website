@@ -374,3 +374,51 @@ a:hover, button:hover {
     color: white; /* Witte tekst voor duidelijkheid */
     transform: scale(1.05); /* Vergroot de knop iets bij hover */
 }
+
+
+/* Styling voor de auteur sectie */
+.author-box h2 {
+    font-family: "Inter", sans-serif; /* Gebruik sans-serif lettertype */
+    font-weight: bold; /* Vetgedrukte tekst */
+    font-size: 1.125rem; /* Kleinere kopgrootte */
+    margin-bottom: 0.75rem; /* Ruimte onder de kop */
+}
+
+.author-box p {
+    font-family: "Source Serif Pro", sans-serif; /* Gebruik serif-lettertype */
+    font-size: 1rem; /* Iets grotere tekstgrootte voor betere leesbaarheid */
+    line-height: 1.6; /* Grotere regelafstand voor meer ademruimte */
+    color: #333; /* Donkere kleur voor contrast en leesbaarheid */
+    margin-bottom: 1.5rem; /* Extra ruimte onder de tekst */
+    text-align: left; /* Zorgt dat de tekst links uitgelijnd is */
+    word-wrap: break-word; /* Voorkomt dat woorden buiten de container vallen */
+}
+
+/* Lees meer knop voor auteur sectie */
+.author-button {
+    background-color: white; /* Witte achtergrond voor de knop */
+    border: 0.0625rem solid #D04F3B; /* Dunne donkerrode rand */
+    padding: 0.5rem 1rem; /* Voegt padding toe */
+    font-weight: bold; /* Vetgedrukte tekst */
+    font-family: "Inter", sans-serif; /* Gebruik sans-serif lettertype */
+    font-size: 0.875rem; /* Kleinere tekstgrootte */
+    color: #D04F3B; /* Donkerrode tekstkleur */
+    text-align: center; /* Centreert de tekst */
+    cursor: pointer; /* Zorgt voor een pointercursor bij hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Voegt een transitie toe bij hover */
+}
+
+.author-button:hover {
+    background-color: #D04F3B; /* Donkerrode achtergrond bij hover */
+    color: white; /* Witte tekst bij hover voor contrast */
+}
+
+/* Styling voor de auteur foto */
+.author-photo {
+    display: block; /* Maakt de afbeelding een blok-element */
+    max-width: 6rem; /* Maximale breedte van 6rem */
+    width: 100%; /* Responsive breedte */
+    height: auto; /* Houdt de verhoudingen van de afbeelding intact */
+    border-radius: 50%; /* Maakt de afbeelding rond */
+    margin: 0 auto 1rem; /* Centreert de afbeelding en voegt ruimte toe onder de foto */
+}
