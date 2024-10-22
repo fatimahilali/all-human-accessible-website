@@ -13,6 +13,279 @@ de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toega
     box-sizing: border-box; /* Zorgt ervoor dat padding en borders binnen de breedte en hoogte van elementen vallen */
 }
 
+
+/* Notificatie en zoekveld styling */
+.notification-container {
+    display: flex; /* Flexbox om de items horizontaal uit te lijnen */
+    align-items: center; /* Centreert de items verticaal */
+}
+
+.newsletter {
+    display: flex; /* Flexbox om de nieuwsbriefitems horizontaal uit te lijnen */
+    align-items: center; /* Centreert de items verticaal */
+    margin-right: clamp(1rem, 2vw, 2.5rem); /* Responsieve marge rechts */
+    color: white; /* De kleur van de tekst is wit */
+}
+
+/* Zoekveld styling */
+.search-container input {
+    padding: clamp(0.25rem, 1vw, 0.5rem) clamp(0.5rem, 1vw, 1rem); /* Responsieve padding */
+    border: 1px solid #ccc; /* Grijze rand om het zoekveld */
+    border-radius: 0.25rem; /* Afgeronde hoeken voor het zoekveld */
+    width: clamp(8rem, 10vw, 15rem); /* Responsieve breedte */
+    height: clamp(1rem, 2vh, 2rem); /* Responsieve hoogte */
+    background-color: #ffffff; /* Witte achtergrond voor het zoekveld */
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1); /* Lichte schaduw voor een zwevend effect */
+    outline: none; /* Verwijdert de standaard focus-outline van browsers */
+    transition: width 0.3s ease, box-shadow 0.3s ease; /* Voegt een zachte overgang toe bij focus */
+}
+
+/* Zoekicoon styling */
+.search-container .search-icon {
+    font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsieve grootte van het zoekicoon */
+    margin-right: clamp(0.5rem, 1vw, 1rem); /* Responsieve marge rechts */
+    color: #E15746; /* Kleur van het zoekicoon */
+    cursor: pointer; /* Verandert de cursor naar een pointer bij hover */
+    transition: transform 0.3s ease, color 0.3s ease; /* Zachte overgang bij hover voor kleur en schaal */
+}
+
+/* Hover-effect met meer contrast */
+.search-container input:focus {
+    width: clamp(10rem, 20vw, 20rem); /* Vergroot het zoekveld bij focus */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); /* Vergroot de schaduw bij focus voor meer diepte */
+    border-color: #E15746; /* Verandert de randkleur naar een roodtint bij focus */
+}
+
+/* Secundaire navigatiebalk stijlen */
+.secondary-item a:hover {
+    color: #E15746; /* Verandert de tekstkleur naar rood bij hover */
+    background-color: transparent; /* Verwijdert achtergrondkleur bij hover */
+    box-shadow: none; /* Verwijdert schaduw bij hover */
+    border: none; /* Geen border bij hover */
+}
+
+/* Logo container stijl */
+.logo-container {
+    text-align: center; /* Centreert de inhoud van de logo-container */
+    padding: clamp(1rem, 3vh, 2rem) 0; /* Responsieve padding boven en onder */
+    background-color: #f4f4f4; /* Lichtgrijze achtergrondkleur voor de logo-sectie */
+}
+
+.logo {
+    width: clamp(8rem, 15vw, 12.5rem); /* Responsieve breedte van het logo */
+    height: auto; /* Automatische hoogte, aangepast aan de breedte */
+}
+
+
+
+/* Stijl van de hoofd navbar */
+.navbar {
+    display: flex; /* Flexbox om de items in de navbar uit te lijnen */
+    align-items: center; /* Centreert de items verticaal */
+    justify-content: space-between; /* Plaatst de items aan weerszijden */
+    padding: clamp(0.5rem, 2vh, 1rem) clamp(1rem, 5vw, 2rem); /* Responsieve padding */
+    background-color: #141415; /* Donkere achtergrondkleur voor de navbar */
+}
+
+/* Menu-knop stijl */
+.menu-button {
+    cursor: pointer; /* Verandert de cursor naar een pointer bij hover */
+    background: none; /* Verwijdert de standaard achtergrond van de knop */
+    border: none; /* Verwijdert de standaard border van de knop */
+    font-size: clamp(1rem, 3vw, 2rem); /* Responsieve grootte van de menu-knop */
+    color: #CCCCCC; /* Kleur van de knop */
+    transition: transform 0.3s ease; /* Zachte overgang bij hover */
+}
+
+.menu-button:hover {
+    transform: rotate(90deg); /* Draait de knop 90 graden bij hover */
+}
+
+/* De overlay en dropdown zijn standaard verborgen */
+.overlay {
+    display: none; /* Verbergt de overlay standaard */
+    opacity: 0; /* Maakt de overlay onzichtbaar */
+    position: fixed; /* Fixed positie, zodat het de hele viewport bedekt */
+    top: 0;
+    left: 0;
+    width: 100%; /* Bedekt de volledige breedte van het scherm */
+    height: 100%; /* Bedekt de volledige hoogte van het scherm */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparante zwarte achtergrond */
+    z-index: 1000; /* Zorgt ervoor dat de overlay boven andere elementen staat */
+    transition: opacity 0.4s ease; /* Zachte overgang voor het zichtbaar maken */
+}
+
+.dropdown {
+    position: fixed; /* Fixed positie, zodat het de hele viewport bedekt */
+    top: 0;
+    left: 0;
+    width: clamp(12rem, 25vw, 20rem); /* Responsieve breedte van het dropdown menu */
+    height: 100%; /* Volledige hoogte van het scherm */
+    background-color: #141415; /* Donkere achtergrond voor het dropdown menu */
+    transform: translateX(-100%); /* Verbergt het menu buiten het scherm */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Zachte overgang bij het tonen van het menu */
+    z-index: 1100; /* Zorgt ervoor dat het menu boven de overlay verschijnt */
+    opacity: 0; /* Maakt het menu onzichtbaar */
+}
+
+/* Wanneer de class 'show' wordt toegevoegd, wordt het menu zichtbaar */
+.overlay.show {
+    display: block; /* Maakt de overlay zichtbaar */
+    opacity: 1; /* Volledig zichtbare overlay */
+}
+
+.dropdown.show {
+    transform: translateX(0); /* Verplaatst het menu naar binnen in beeld */
+    opacity: 1; /* Volledig zichtbare dropdown */
+}
+
+/* Stijl voor de sluitknop */
+.close-button {
+    align-self: flex-end; /* Plaatst de knop rechtsboven in het menu */
+    cursor: pointer; /* Verandert de cursor naar een pointer bij hover */
+    background: none; /* Geen achtergrond voor de knop */
+    border: none; /* Geen border voor de knop */
+    font-size: clamp(1.5rem, 3vw, 2rem); /* Responsieve grootte van de sluitknop */
+    color: #ffffff; /* Witte kleur voor de sluitknop */
+}
+
+/* Verbergt tekst visueel, maar houdt deze beschikbaar voor schermlezers */
+.visually-hidden {
+    position: absolute; /* Zorgt ervoor dat het element uit de normale documentstroom wordt gehaald, zonder de layout te beïnvloeden */
+    width: 1px; /* Maakt het element praktisch onzichtbaar door de breedte heel klein te maken */
+    height: 1px; /* Maakt het element praktisch onzichtbaar door de hoogte heel klein te maken */
+    padding: 0; /* Verwijdert eventuele interne opvulling, zodat het element geen ruimte inneemt */
+    margin: -1px; /* Verwijdert marge door een negatieve waarde te gebruiken, zodat het buiten het zicht wordt geplaatst */
+    overflow: hidden; /* Zorgt ervoor dat, als er inhoud is, deze niet zichtbaar is buiten de randen van het element */
+    clip: rect(0, 0, 0, 0); /* Knipt de weergave van het element tot een onzichtbaar gebied, zodat het effectief "uitgeknipt" is */
+    border: 0; /* Verwijdert de rand, voor het geval er een is, om geen extra zichtbare elementen te laten zien */
+}
+
+/* Nav-lijst en items */
+.nav-list {
+    list-style: none; /* Verwijdert standaard bullet points */
+    padding: 0; /* Geen padding voor de lijst */
+    margin: clamp(1rem, 3vh, 1.25rem) 0 0 0; /* Responsieve marge boven de lijst */
+    display: flex; /* Flexbox om de items uit te lijnen */
+    flex-direction: column; /* Plaatst de items onder elkaar */
+}
+
+.item {
+    padding: clamp(0.5rem, 2vh, 1rem) clamp(0.5rem, 2vw, 1rem); /* Responsieve padding rondom elk item */
+}
+
+/* Link styling met 3D hover effect */
+.item a {
+    color: #ffffff; /* Witte kleur voor de links */
+    text-decoration: none; /* Verwijdert de onderstreping van links */
+    font-size: clamp(0.875rem, 2vw, 1rem); /* Responsieve grootte van de links */
+    display: block; /* Links vullen de volledige breedte van de container */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Zachte overgang voor hover effecten */
+}
+
+/* 3D Hover effect op de item links */
+.item a:hover {
+    transform: perspective(300px) rotateX(15deg) rotateY(-15deg) scale(1.1); /* 3D hover effect */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5); /* Schaduw voor diepte-effect */
+}
+
+/* Stijl van de separator */
+.separator {
+    height: 0.0625rem; /* Dunne lijn tussen de items */
+    background-color: #3d3a3a; /* Kleur van de scheidingslijn */
+    margin: clamp(0.5rem, 1vw, 1rem) 0; /* Responsieve marge rondom de separator */
+}
+
+/* Secundaire navigatiebalk stijlen */
+.secondary-navbar {
+    padding: clamp(0.5rem, 2vh, 1rem) 0;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1); /* Lichte schaduw onder de navbar */
+    background-color: #1f1f1f; /* Donkere achtergrond voor beter contrast */
+}
+
+/* Stijl voor de navigatielijst */
+.secondary-nav-list {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+/* Stijl voor de navigatie-items */
+.secondary-item a {
+    text-decoration: none;
+    color: #ffffff; /* Witte tekstkleur voor beter contrast */
+    padding: clamp(0.5rem, 1vh, 0.75rem);
+    border-radius: 0.25rem;
+    background-color: transparent; /* Transparant als standaardachtergrond */
+    display: block; /* Zorgt ervoor dat het hele item klikbaar is */
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 0.3s, box-shadow 0.3s; /* Zachte overgang voor interactief gevoel */
+}
+
+/* Hover- en focus-effecten voor links */
+.secondary-item a:hover,
+.secondary-item a:focus {
+    color: #fff; /* Blijft wit voor consistente leesbaarheid */
+    background-color: #6a6a6a; /* Iets lichter grijs voor een duidelijker hover-effect */
+    box-shadow: inset 0 0 0 2px #FFF; /* Geeft een subtiele witte rand voor contrast */
+    transform: scale(1.05); /* Kleine vergroting voor interactief gevoel */
+}
+
+/* Focusring voor toetsenbordgebruikers */
+.secondary-item a:focus {
+    outline: 3px solid #ffbf47; /* Voeg een gele outline toe bij focus */
+    outline-offset: 3px; /* Zorg ervoor dat de outline een beetje buiten de link staat */
+    box-shadow: 0 0 0 3px rgba(255, 191, 71, 0.5); /* Subtiele schaduw om de focusring extra te benadrukken */
+}
+
+/* Separator tussen de items */
+.secondary-separator {
+    height: clamp(0.75rem, 2vh, 1.25rem); /* Responsieve hoogte van de scheidingslijn */
+    width: 0.0625rem;
+    background-color: rgba(255, 255, 255, 0.3); /* Zachte, transparante witte kleur voor de scheiding */
+    margin: 0 clamp(0.5rem, 1vw, 1rem);
+    margin-top: clamp(0.25rem, 1vh, 0.625rem);
+}
+
+
+/* Stijl voor de view-counter (aantal keer gelezen) */
+.view-counter {
+    display: block; /* Zorgt ervoor dat de counter onder de afbeelding komt */
+    color: #333; 
+    font-size: 0.875rem; /* Gebruik van rem voor responsieve tekstgrootte */
+    font-weight: 500;
+    margin-top: 2rem; /* Vergroot ruimte boven de counter */
+    width: auto; /* Flexibel gebruik van breedte, zodat het zich aanpast */
+    max-width: 100%; /* Beperkt de breedte tot een maximum van 100% van de container */
+    margin-left: 1rem; /* Plaatst de counter een beetje naar links */
+    margin-right: auto; /* Zorgt ervoor dat de counter niet naar het midden wordt gecentreerd */
+    padding: 0.5rem 1rem; /* Responsieve padding */
+    text-align: left; /* Tekst wordt links uitgelijnd */
+    position: relative; /* Voor positionering van ::before en ::after */
+}
+
+/* Pseudo-element voor een decoratief oog-icoon vóór de tekst */
+.view-counter::before {
+    content: '👁️'; /* Voeg een oog-icoon toe vóór de tekst */
+    display: inline-block;
+    margin-right: 0.5rem; /* Ruimte tussen het icoon en de tekst */
+    font-size: 1.25rem; /* Grootte van het icoon */
+    animation: heartbeat 1.5s ease-in-out 10; /* Heartbeat animatie, 3 keer herhalen */
+}
+
+/* Keyframes voor heartbeat-animatie */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1); /* Begin- en eindpunt, normale grootte */
+    }
+    50% {
+        transform: scale(1.3); /* Tussenpunt, grotere grootte voor de "beat" */
+    }
+}
+
+
 /* Stijl voor de voortgangsbalkcontainer */
 #progress-bar-container {
     position: fixed;
@@ -238,42 +511,6 @@ h2 {
     padding: 0.5rem 1rem; /* Voegt padding toe voor leesbaarheid */
 }
 
-/* Stijl voor de view-counter (aantal keer gelezen) */
-.view-counter {
-    display: block; /* Zorgt ervoor dat de counter onder de afbeelding komt */
-    color: #333; 
-    font-size: 0.875rem; /* Gebruik van rem voor responsieve tekstgrootte */
-    font-weight: 500;
-    margin-top: 2rem; /* Vergroot ruimte boven de counter */
-    width: auto; /* Flexibel gebruik van breedte, zodat het zich aanpast */
-    max-width: 100%; /* Beperkt de breedte tot een maximum van 100% van de container */
-    margin-left: 1rem; /* Plaatst de counter een beetje naar links */
-    margin-right: auto; /* Zorgt ervoor dat de counter niet naar het midden wordt gecentreerd */
-    padding: 0.5rem 1rem; /* Responsieve padding */
-    text-align: left; /* Tekst wordt links uitgelijnd */
-    position: relative; /* Voor positionering van ::before en ::after */
-}
-
-/* Pseudo-element voor een decoratief oog-icoon vóór de tekst */
-.view-counter::before {
-    content: '👁️'; /* Voeg een oog-icoon toe vóór de tekst */
-    display: inline-block;
-    margin-right: 0.5rem; /* Ruimte tussen het icoon en de tekst */
-    font-size: 1.25rem; /* Grootte van het icoon */
-    animation: heartbeat 1.5s ease-in-out 10; /* Heartbeat animatie, 3 keer herhalen */
-}
-
-/* Keyframes voor heartbeat-animatie */
-@keyframes heartbeat {
-    0%, 100% {
-        transform: scale(1); /* Begin- en eindpunt, normale grootte */
-    }
-    50% {
-        transform: scale(1.3); /* Tussenpunt, grotere grootte voor de "beat" */
-    }
-}
-
-
 /* Algemene container styling voor ondersteuning en auteur secties */
 .support-section, .author-section {
     margin: 2rem auto; /* Ruimte boven en onder, en centreert de sectie */
@@ -375,7 +612,6 @@ a:hover, button:hover {
     transform: scale(1.05); /* Vergroot de knop iets bij hover */
 }
 
-
 /* Styling voor de auteur sectie */
 .author-box h2 {
     font-family: "Inter", sans-serif; /* Gebruik sans-serif lettertype */
@@ -422,6 +658,7 @@ a:hover, button:hover {
     border-radius: 50%; /* Maakt de afbeelding rond */
     margin: 0 auto 1rem; /* Centreert de afbeelding en voegt ruimte toe onder de foto */
 }
+
 /* Styling voor de gerelateerde artikelen sectie */
 .related-articles-section {
     max-width: 44rem; /* Maximale breedte van de sectie */
@@ -509,7 +746,6 @@ a:hover, button:hover {
         flex: 1 1 100%; /* Laat elk artikel de volledige breedte innemen op kleinere schermen */
     }
 }
-
 
 /* Footer styling */
 .responsive-footer {
@@ -599,6 +835,8 @@ a:hover, button:hover {
 .footer-column ul li a:hover {
     color: #E15746; /* Kleurverandering naar donkeroranje-rood bij hover */
 }
+
+
 
 
 
