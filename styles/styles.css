@@ -4,129 +4,271 @@ Ontwikkelaar: Fatima Elhilali
 Beschrijving: Deze code is ontworpen om een responsieve en toegankelijke website te creëren, 
 die gebruiksvriendelijk is voor mensen met beperkingen. De focus ligt op het optimaliseren van 
 de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toegankelijkheidsbehoeften.
-
 */
 
 /* Algemene reset van marges en padding en instelling van box-sizing voor alle elementen */
 * {
-    margin: 0; /* Verwijdert alle standaardmarges */
-    padding: 0; /* Verwijdert alle standaardpadding */
-    box-sizing: border-box; /* Zorgt ervoor dat padding en border bij de breedte en hoogte worden inbegrepen */
+    margin: 0; /* Verwijdert standaardmarges voor consistentie */
+    padding: 0; /* Verwijdert standaardpadding voor consistentie */
+    box-sizing: border-box; /* Zorgt ervoor dat padding en borders binnen de breedte en hoogte van elementen vallen */
 }
 
-/* Achtergrondkleur en lettertype voor de body van de pagina */
-body {
-    font-family: Arial, sans-serif; /* Instellen van een basis lettertype voor de hele pagina */
+/* Stijl voor de voortgangsbalkcontainer */
+#progress-bar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.4rem; /* Hoogte van de balk */
+    background-color: #f0f0f0; /* Achtergrondkleur van de container */
+    z-index: 1000; /* Zodat de balk boven andere elementen ligt */
 }
 
-/* Styling voor het artikel: centrale uitlijning, padding en marges */
+/* Stijl voor de voortgangsbalk */
+#progress-bar {
+    height: 100%;
+    width: 0; /* Start met breedte van 0% */
+    background-color: #161413; /* Kleur van de voortgangsbalk */
+    transition: width 0.1s ease-in-out; /* Zachte overgang bij breedteverandering */
+}
+
+
+/* Styling voor het artikel: tekst centreren en marges instellen */
 .article {
     text-align: center; /* Centreert de inhoud van de tekst */
-    padding: 1.25rem 0; /* Voegt verticale padding toe boven en onder de sectie */
-    max-width: 50rem; /* Beperkt de breedte van de sectie tot 50 rem */
-    margin: 0 auto; /* Centreert de sectie horizontaal */
-    margin-top: 6.25rem; /* Voegt extra ruimte boven de sectie toe */
+    padding: 2rem 0; /* Voegt ruimte boven en onder toe */
+    max-width: 50rem; /* Beperkt de breedte van het artikel tot een maximum */
+    margin: 8rem auto 0; /* Centreert het artikel horizontaal en voegt ruimte boven toe */
 }
 
 /* Titel van het artikel met responsieve styling */
-.article-title {
-    font-family: 'Tiempos Headline', serif; /* Instellen van een speciaal lettertype voor de titel */
-    font-size: clamp(1.5rem, 5vw, 2.8125rem); /* Responsieve tekstgrootte: past zich aan op basis van schermbreedte */
-    font-weight: 900; /* Extra vetgedrukte tekst */
-    line-height: 0.9; /* Verkleint de ruimte tussen de tekstregels */
-    letter-spacing: -0.03125rem; /* Verkleint de ruimte tussen de letters */
-    color: black; /* Zwarte kleur voor de titel */
-    margin: 0; /* Geen extra marges rond de titel */
-    padding-bottom: 1.25rem; /* Voegt wat ruimte onder de titel toe */
-    display: inline-block; /* Zorgt ervoor dat de titel inline is maar als blokelement wordt behandeld */
+article h1.article-title {
+    font-family: 'Tiempos Headline', serif; /* Gebruik een serif-lettertype voor de titel */
+    font-size: clamp(1.5rem, 5vw, 2.8125rem); /* Zorgt voor responsieve tekstgrootte */
+    font-weight: 900; /* Maakt de tekst vetgedrukt */
+    line-height: 0.9; /* Verkleint de ruimte tussen regels */
+    letter-spacing: -0.03125rem; /* Verkleint de ruimte tussen letters */
+    color: black; /* Zwarte kleur voor de titel voor goed contrast */
+    margin: 0; /* Verwijdert de standaardmarge */
+    padding-bottom: 2rem; /* Voegt ruimte onder de titel toe */
+    display: inline-block; /* Zorgt ervoor dat de titel inline met de inhoud blijft */
 }
 
 /* Styling voor afbeeldingen binnen het artikel */
 .article-image {
-    max-width: 100%; /* Beperkt de breedte van de afbeelding tot 100% van de container */
-    height: auto; /* Zorgt ervoor dat de hoogte proportioneel blijft bij het schalen van de afbeelding */
-    margin-top: clamp(1rem, 4vw, 3rem); /* Voegt een responsieve marge boven de afbeelding toe */
+    max-width: 100%; /* Maakt de afbeelding responsief door de breedte te maximaliseren */
+    height: auto; /* Zorgt ervoor dat de hoogte automatisch past bij de breedte */
+    margin-top: clamp(2rem, 4vw, 3rem); /* Voegt ruimte boven de afbeelding toe, afhankelijk van schermgrootte */
+    opacity: 0; /* Zorgt ervoor dat de afbeelding onzichtbaar begint voor de animatie */
+    animation: fadeIn 1s ease-in-out forwards; /* Voegt een fade-in effect toe wanneer de afbeelding wordt geladen */
 }
 
-/* Styling voor de categorie en datum/tijd informatie onder de afbeelding */
+/* Fade-in animatie voor afbeeldingen */
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start met onzichtbare afbeelding */
+        transform: translateY(20px); /* Begint met een lichte verplaatsing naar beneden */
+    }
+    100% {
+        opacity: 1; /* Eindigt met zichtbare afbeelding */
+        transform: translateY(0); /* Beëindigt de verplaatsing naar de oorspronkelijke positie */
+    }
+}
+
+/* Informatie sectie met categorie en datum/tijd informatie */
 .article-info {
-    display: flex; /* Zorgt voor een flexibele layout voor de elementen in deze sectie */
-    justify-content: flex-start; /* Zorgt ervoor dat de elementen aan de linkerkant beginnen */
-    margin-top: clamp(2rem, 5vw, 4rem); /* Voegt een responsieve marge boven de sectie toe */
-    margin-left: clamp(0.5rem, 2vw, 1rem); /* Voegt een responsieve marge links toe */
-    font-size: clamp(0.75rem, 2vw, 0.875rem); /* Past de tekstgrootte aan op basis van schermbreedte */
-    color: #333; /* Donkergrijze kleur voor de tekst */
-    position: relative; /* Zorgt ervoor dat het element relatief ten opzichte van zichzelf kan worden gepositioneerd */
-    right: clamp(-0.5rem, -1vw, -1rem); /* Verschuift de sectie iets naar rechts, responsief */
+    display: flex; /* Maakt de container flexbox */
+    justify-content: flex-start; /* Zorgt ervoor dat de inhoud aan de linkerkant begint */
+    margin-top: clamp(3rem, 5vw, 4rem); /* Voegt ruimte boven de sectie toe */
+    margin-left: clamp(1rem, 2vw, 2rem); /* Voegt linker marge toe voor extra ruimte */
+    font-size: clamp(0.75rem, 2vw, 0.875rem); /* Past de tekstgrootte aan op basis van schermgrootte */
+    color: #444; /* Donkerdere tekstkleur voor leesbaarheid */
+    position: relative;
+    right: clamp(-0.5rem, -1vw, -1rem); /* Verplaatst de sectie iets naar rechts voor een dynamische lay-out */
 }
 
 /* Styling voor de categorie tekst binnen de artikel-informatie */
 .article-info .category {
-    font-weight: bold; /* Vetgedrukt om de categorie te benadrukken */
-    color: #D04F3B; /* Specifieke kleur voor de categorie (bijv. "BINNENLAND") */
-    margin-right: 0.5rem; /* Ruimte tussen de categorie en de datum/tijd */
+    font-weight: bold; /* Maakt de categorie vetgedrukt om deze te benadrukken */
+    color: #D04F3B; /* Gebruik een specifieke kleur voor de categorie (bijvoorbeeld "BINNENLAND") */
+    margin-right: 1rem; /* Voegt ruimte toe tussen de categorie en de datum/tijd informatie */
 }
 
-/* Styling voor de datum/tijd binnen de artikel-informatie */
+/* Styling voor de datum/tijd tekst binnen de artikel-informatie */
 .article-info .date-time {
-    color: #333; /* Zelfde donkergrijze kleur als de rest van de informatie */
+    color: #444; /* Donkerdere kleur voor betere leesbaarheid */
 }
 
-/* tekst onder het artikel, met aangepaste opmaak */
+/* Tekst die na het artikel komt, met een grotere opmaak */
 .additional-text {
-    font-family: "Inter", Sans-serif; /* Zelfde lettertype als andere secties */
-    font-size: clamp(1.5rem, 2vw, 1.5rem); /* Responsieve tekstgrootte: past zich aan op basis van schermgrootte */
-    font-weight: 300; /* Lichtgewicht tekst */
-    line-height: clamp(2.1875rem, 3vw, 2.1875rem); /* Responsieve regelafstand: past zich aan op basis van schermgrootte */
-    color: #333; /* Donkergrijze kleur voor de tekst */
-    margin-top: 0.75rem; /* Ruimte boven de extra tekst */
-    max-width: 50rem; /* Beperkt de breedte van de tekst tot 50 rem */
-    text-align: left; /* Uitlijning van de tekst naar links */
-    padding: clamp(1rem, 2vw, 2rem); /* Responsieve padding rond de tekst */
+    font-family: "Inter", Sans-serif; /* Gebruik een modern sans-serif lettertype voor consistentie */
+    font-size: clamp(1.5rem, 2vw, 1.5rem); /* Responsieve tekstgrootte die zich aanpast aan schermbreedte */
+    font-weight: 300; /* Gebruik een lichtere letterdikte */
+    line-height: clamp(2.1875rem, 3vw, 2.1875rem); /* Zorgt voor een goede regelafstand voor leesbaarheid */
+    color: #333; /* Donkergrijze kleur voor tekst */
+    margin-top: 1.5rem; /* Voegt ruimte toe boven de extra tekst */
+    max-width: 50rem; /* Beperkt de breedte van de tekst voor leesbaarheid */
+    text-align: left; /* Links uitgelijnd voor een standaard leeservaring */
+    padding: clamp(2rem, 2vw, 2rem); /* Zorgt voor voldoende padding afhankelijk van schermgrootte */
 }
 
-
-/* informatie sectie styling */
+/* Informatie sectie voor extra informatie in het artikel */
 .extra-info {
-    display: flex; /* Maakt de sectie een flex-container */
-    flex-direction: column; /* Zet de inhoud in een kolomopmaak */
-    margin-top: 1rem; /* Voegt ruimte boven de sectie toe */
-    max-width: 42rem; /* Beperkt de breedte van de sectie */
-    margin-left: 3rem; /* Verschuift de sectie iets naar rechts */
+    display: flex; /* Flex-container voor de informatieblokken */
+    flex-direction: column; /* Zet de inhoud in een kolomlay-out */
+    margin-top: 1rem; /* Voeg ruimte boven de sectie toe */
+    max-width: 42rem; /* Beperk de breedte van de sectie */
+    margin-left: 3rem; /* Voegt marge toe aan de linkerkant */
 }
 
 /* Styling voor elk informatieblok in de extra-info sectie */
 .extra-info .article-info {
-    display: flex; /* Zet de inhoud van elk blok in een flexibele rij */
-    justify-content: flex-start; /* Plaatst de items aan de linkerkant */
-    font-size: clamp(0.75rem, 2vw, 0.875rem); /* Zorgt voor responsieve tekstgrootte */
-    color: #333; /* Stelt de tekstkleur in op donkergrijs */
-    text-transform: uppercase; /* Zet de tekst om in hoofdletters */
+    display: flex; /* Flexibele rij-indeling voor de informatie */
+    justify-content: flex-start; /* Plaatst de inhoud aan de linkerkant */
+    font-size: clamp(0.75rem, 2vw, 0.875rem); /* Responsieve tekstgrootte */
+    color: #333; /* Donkergrijze kleur voor de tekst */
+    text-transform: uppercase; /* Alle tekst in hoofdletters voor consistentie */
     letter-spacing: 0.1rem; /* Vergroot de afstand tussen de letters */
-    padding: 0.5rem 0; /* Voegt padding toe boven en onder de tekst */
-    border-bottom: 0.0625rem solid black; /* Vervangt px door rem voor een responsieve onderlijn */
+    padding: 0.5rem 0; /* Voegt ruimte boven en onder de tekst toe */
+    border-bottom: 0.0625rem solid black; /* Zwarte onderrand voor scheiding */
 }
 
-/* Voegt een bovenlijn toe aan de eerste sectie van extra-info */
+/* Voegt een bovenrand toe aan het eerste blok van de extra-info sectie */
 .extra-info .top-border {
-    border-top: 0.0625rem solid black; /* Vervangt px door rem voor een responsieve bovenlijn */
+    border-top: 0.0625rem solid black; /* Zwarte bovenrand voor scheiding */
 }
 
-/* Styling voor het laatste informatieblok in extra-info */
+/* Laatste informatieblok binnen extra-info met extra ruimte boven */
 .extra-info .article-info:last-child {
-    border-bottom: 0.0625rem solid black; /* Vervangt px door rem voor de onderlijn van het laatste blok */
-    margin-top: 0.4rem; /* Zorgt voor extra ruimte boven het laatste blok */
+    border-bottom: 0.0625rem solid black; /* Zwarte onderrand voor scheiding */
+    margin-top: 0.4rem; /* Extra ruimte boven het laatste blok */
 }
 
-/* Styling voor de categorie tekst binnen elk informatieblok */
+/* Categorie tekst binnen elk informatieblok */
 .extra-info .category {
     font-weight: normal; /* Zorgt ervoor dat de categorie tekst niet vetgedrukt is */
-    color: #333; /* Stelt de tekstkleur in op donkergrijs */
-    margin-right: 0.5rem; /* Voegt ruimte toe rechts van de categorie tekst */
+    color: #333; /* Gebruik dezelfde donkergrijze kleur voor consistentie */
+    margin-right: 0.5rem; /* Voegt ruimte toe tussen categorie en andere informatie */
 }
 
-/* Vetgedrukte styling voor de auteur en leestijd binnen de informatieblokken */
+/* Vetgedrukte styling voor auteur en leestijd in de informatieblokken */
 .extra-info .author,
 .extra-info .reading-time {
-    font-weight: bold; /* Maakt de tekst van de auteur en leestijd vetgedrukt */
+    font-weight: bold; /* Maakt deze tekst vetgedrukt om belangrijkheid te benadrukken */
+}
+
+/* Styling voor de inhoud van het artikel */
+.article-content {
+    max-width: 42rem; /* Beperkt de breedte van de tekstsectie */
+    margin-left: auto; /* Centreert de sectie horizontaal */
+    margin-right: auto; /* Centreert de sectie horizontaal */
+    text-align: left; /* Links uitgelijnd voor leesbaarheid */
+    margin-top: 1.25rem; /* Voegt ruimte toe boven de inhoud */
+    padding: 0.5rem 1rem; /* Voegt padding toe voor interne ruimte */
+    font-family: "Source Serif Pro", sans-serif; /* Gebruik een serif-lettertype voor leesbaarheid */
+    font-size: clamp(0.875rem, 1.5vw, 1.125rem); /* Responsieve tekstgrootte die varieert afhankelijk van schermgrootte */
+    line-height: clamp(1.25rem, 2vw, 1.625rem); /* Zorgt voor een goede regelafstand */
+}
+
+/* Styling voor paragrafen binnen de artikelinhoud */
+.article-content p {
+    margin-bottom: 1rem; /* Voegt ruimte toe onder de paragrafen voor consistentie */
+}
+
+/* Styling voor gecursiveerde tekst binnen de artikelinhoud */
+.article-content i {
+    font-style: italic; /* Maakt tekst cursief voor nadruk */
+    font-family: "Source Serif Pro", sans-serif; /* Houdt het lettertype consistent */
+}
+
+/* Kopjes binnen de artikelinhoud */
+h2 {
+    font-family: "Inter", sans-serif; /* Gebruik een sans-serif lettertype voor kopjes */
+    font-size: clamp(0.875rem, 2.5vw, 1.125rem); /* Responsieve tekstgrootte */
+    line-height: clamp(1.125rem, 2.5vw, 1.5rem); /* Zorgt voor voldoende ruimte tussen regels */
+    margin-top: 1rem; /* Voegt ruimte toe boven het kopje */
+    margin-bottom: 0.5rem; /* Voegt ruimte toe onder het kopje */
+}
+
+/* Styling voor de quote sectie */
+.quote-section {
+    max-width: 42rem; /* Beperkt de breedte van de quote sectie */
+    margin-left: auto; /* Centreert de sectie */
+    margin-right: auto; /* Centreert de sectie */
+    padding: 2rem 0; /* Voegt padding toe voor ruimte */
+    margin-top: 2rem; /* Voegt ruimte toe boven de quote sectie */
+    margin-bottom: 2rem; /* Voegt ruimte toe onder de quote sectie */
+    text-align: left; /* Links uitgelijnd voor consistentie */
+    position: relative; /* Positie voor het aanhalingsteken */
+}
+
+/* Aanhalingsteken styling binnen de quote */
+.quote-section::before {
+    content: '“'; /* Voegt een aanhalingsteken toe */
+    font-family: "Tiempos Headline", serif; /* Gebruik een serif-lettertype */
+    font-size: clamp(2.5rem, 8vw, 6rem); /* Responsieve grootte voor het aanhalingsteken */
+    color: #D04F3B; /* Oranje-rode kleur voor het aanhalingsteken */
+    position: absolute; /* Positioneert het aanhalingsteken absoluut */
+    top: -1rem; /* Plaatst het aanhalingsteken boven de tekst */
+    left: 1rem; /* Plaatst het aanhalingsteken links van de tekst */
+}
+
+/* Titel van de quote sectie */
+.quote-title {
+    font-family: "Tiempos Headline", serif; /* Gebruik een serif-lettertype */
+    font-size: clamp(1.75rem, 4vw, 2.25rem); /* Responsieve tekstgrootte voor de titel */
+    font-weight: bold; /* Maakt de tekst vetgedrukt */
+    line-height: clamp(1.75rem, 4vw, 2.5rem); /* Zorgt voor voldoende ruimte tussen regels */
+    color: black; /* Zwarte kleur voor de titel */
+    margin-bottom: clamp(1rem, 2vw, 1.5rem); /* Ruimte onder de titel afhankelijk van schermgrootte */
+    margin-left: clamp(1rem, 5vw, 4rem); /* Ruimte aan de linkerkant van de titel */
+}
+
+/* Inhoud van de quote sectie */
+.quote-content {
+    font-family: "Source Serif Pro", sans-serif; /* Houdt het serif-lettertype consistent */
+    font-size: clamp(0.875rem, 1.5vw, 1.125rem); /* Responsieve tekstgrootte voor de inhoud */
+    line-height: clamp(1.25rem, 2vw, 1.625rem); /* Zorgt voor goede regelafstand */
+    color: #333; /* Donkergrijze kleur voor de tekst */
+    margin-bottom: 1rem; /* Voegt ruimte toe onder de paragrafen */
+    max-width: 44rem; /* Beperkt de breedte van de tekst */
+    margin-left: auto; /* Centreert de tekst */
+    margin-right: auto; /* Centreert de tekst */
+    text-align: left; /* Links uitgelijnd voor consistentie */
+    padding: 0.5rem 1rem; /* Voegt padding toe voor leesbaarheid */
+}
+
+/* Stijl voor de view-counter (aantal keer gelezen) */
+.view-counter {
+    display: block; /* Zorgt ervoor dat de counter onder de afbeelding komt */
+    color: #333; 
+    font-size: 0.875rem; /* Gebruik van rem voor responsieve tekstgrootte */
+    font-weight: 500;
+    margin-top: 2rem; /* Vergroot ruimte boven de counter */
+    width: auto; /* Flexibel gebruik van breedte, zodat het zich aanpast */
+    max-width: 100%; /* Beperkt de breedte tot een maximum van 100% van de container */
+    margin-left: 1rem; /* Plaatst de counter een beetje naar links */
+    margin-right: auto; /* Zorgt ervoor dat de counter niet naar het midden wordt gecentreerd */
+    padding: 0.5rem 1rem; /* Responsieve padding */
+    text-align: left; /* Tekst wordt links uitgelijnd */
+    position: relative; /* Voor positionering van ::before en ::after */
+}
+
+/* Pseudo-element voor een decoratief oog-icoon vóór de tekst */
+.view-counter::before {
+    content: '👁️'; /* Voeg een oog-icoon toe vóór de tekst */
+    display: inline-block;
+    margin-right: 0.5rem; /* Ruimte tussen het icoon en de tekst */
+    font-size: 1.25rem; /* Grootte van het icoon */
+    animation: heartbeat 1.5s ease-in-out 10; /* Heartbeat animatie, 3 keer herhalen */
+}
+
+/* Keyframes voor heartbeat-animatie */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1); /* Begin- en eindpunt, normale grootte */
+    }
+    50% {
+        transform: scale(1.3); /* Tussenpunt, grotere grootte voor de "beat" */
+    }
 }
