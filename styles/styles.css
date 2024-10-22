@@ -422,3 +422,90 @@ a:hover, button:hover {
     border-radius: 50%; /* Maakt de afbeelding rond */
     margin: 0 auto 1rem; /* Centreert de afbeelding en voegt ruimte toe onder de foto */
 }
+/* Styling voor de gerelateerde artikelen sectie */
+.related-articles-section {
+    max-width: 44rem; /* Maximale breedte van de sectie */
+    margin: 2rem auto; /* Centreert de sectie en voegt ruimte toe boven en onder */
+    text-align: center; /* Centreert de tekst */
+    padding: 0 1rem; /* Voegt padding toe voor kleinere schermen */
+}
+
+.related-articles-section h2 {
+    font-family: "Inter", sans-serif; /* Gebruik sans-serif lettertype */
+    font-weight: bold; /* Vetgedrukte tekst */
+    font-size: clamp(1.25rem, 3vw, 1.5rem); /* Responsieve kopgrootte */
+    margin-bottom: 1.5rem; /* Ruimte onder de kop */
+    text-align: left; /* Links uitgelijnd voor consistentie */
+}
+
+/* Styling voor de container met de artikelen */
+.related-articles {
+    display: flex; /* Flexbox om de artikelen naast elkaar te plaatsen */
+    justify-content: space-between; /* Verdeel de ruimte tussen de artikelen gelijkmatig */
+    gap: 1rem; /* Ruimte tussen de artikelen */
+    flex-wrap: wrap; /* Zorgt ervoor dat de artikelen bij kleinere schermen afbreken naar de volgende rij */
+}
+
+/* Styling voor elk artikel-item */
+.article-item {
+    flex: 1 1 calc(33.333% - 1rem); /* Elk artikel neemt 1/3 van de breedte in met ruimte ertussen */
+    background-color: #fff; /* Witte achtergrond voor elk artikel */
+    padding: 1rem; /* Padding binnen het artikel */
+    border: 0.0625rem solid #D04F3B; /* Dunne donkerrode rand */
+    border-radius: 0.25rem; /* Lichte afronding van de hoeken */
+    text-align: center; /* Gecentreerde tekst */
+    display: flex;
+    flex-direction: column; /* Elementen staan verticaal onder elkaar */
+    justify-content: space-between; /* Zorg dat de button onderaan blijft */
+}
+
+/* Styling voor de afbeelding in het artikel */
+.article-image {
+    width: 100%; /* De afbeelding neemt de volledige breedte in */
+    height: auto; /* Houdt de verhoudingen van de afbeelding intact */
+    border-bottom: 1px solid #e0e0e0; /* Een dunne rand onder de afbeelding */
+    margin-bottom: 1rem; /* Ruimte onder de afbeelding */
+}
+
+/* Styling voor de titel van het artikel */
+.article-title {
+    font-family: "Inter", sans-serif; /* Gebruik het Inter-lettertype */
+    font-weight: bold; /* Vetgedrukte tekst */
+    font-size: clamp(0.875rem, 1.5vw, 1rem); /* Responsieve tekstgrootte */
+    margin-bottom: 0.5rem; /* Ruimte onder de titel */
+}
+
+/* Styling voor de datum van het artikel */
+.article-date {
+    font-family: "Inter", sans-serif; /* Gebruik het Inter-lettertype */
+    font-size: clamp(0.75rem, 1.2vw, 0.875rem); /* Responsieve tekstgrootte voor de datum */
+    color: #888; /* Lichtgrijze kleur voor de datum */
+}
+
+/* Stijl voor de "Meer" buttons */
+.more-article-button {
+    background-color: white; /* Witte achtergrond voor de knop */
+    border: 0.0625rem solid #D04F3B; /* Dunne donkerrode rand */
+    padding: 0.5rem 1rem; /* Padding binnen de knop */
+    font-weight: bold; /* Vetgedrukte tekst */
+    font-family: "Inter", sans-serif; /* Gebruik het Inter-lettertype */
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem); /* Responsieve tekstgrootte */
+    color: #D04F3B; /* Donkerrode tekstkleur */
+    cursor: pointer; /* Verander de muisaanwijzer naar een pointer bij hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Overgang bij hover */
+    width: 100%; /* De knop neemt de volledige breedte van de container in */
+    text-align: center; /* Zorg dat de tekst gecentreerd is */
+}
+
+/* Hover-effect voor de "Meer" buttons */
+.more-article-button:hover {
+    background-color: #D04F3B; /* Donkerrode achtergrond bij hover */
+    color: white; /* Witte tekst bij hover */
+}
+
+/* Responsieve layout voor kleinere schermen */
+@media (max-width: 768px) {
+    .article-item {
+        flex: 1 1 100%; /* Laat elk artikel de volledige breedte innemen op kleinere schermen */
+    }
+}
