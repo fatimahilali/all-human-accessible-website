@@ -272,3 +272,105 @@ h2 {
         transform: scale(1.3); /* Tussenpunt, grotere grootte voor de "beat" */
     }
 }
+
+
+/* Algemene container styling voor ondersteuning en auteur secties */
+.support-section, .author-section {
+    margin: 2rem auto; /* Ruimte boven en onder, en centreert de sectie */
+    max-width: 42rem; /* Beperkt de breedte van de sectie */
+    padding: 1.5rem; /* Voegt interne ruimte toe */
+    border: 0.0625rem solid #D04F3B; /* Dunne donkerrode rand */
+    border-radius: 0.25rem; /* Maakt de hoeken licht afgerond */
+}
+
+/* Styling voor de Steun Red Pers sectie */
+.support-box {
+    text-align: center; /* Centreert de tekst */
+    display: block; /* Zorgt ervoor dat de inhoud van de sectie zich onder elkaar bevindt */
+}
+
+.support-box h2 {
+    font-family: "Inter", sans-serif; /* Sans-serif lettertype */
+    font-weight: bold; /* Vetgedrukte tekst */
+    font-size: 1.125rem; /* Kleinere kopteksten */
+    color: #D04F3B; /* Donkerrode kleur voor de koppen */
+    margin-bottom: 0.5rem; /* Ruimte onder de kop */
+}
+
+.support-box p {
+    font-family: "Source Serif Pro", sans-serif; /* Houdt het lettertype consistent */
+    font-size: 1rem; /* Iets grotere tekstgrootte voor betere leesbaarheid */
+    line-height: 1.6; /* Zorgt voor een prettige regelafstand voor leesbaarheid */
+    color: #D04F3B; /* Donkerrode kleur voor de tekst */
+    margin-bottom: 1.5rem; /* Extra ruimte onder de tekst voor betere scheiding */
+    text-align: left; /* Zorgt dat de tekst netjes links uitgelijnd is */
+    word-wrap: break-word; /* Voorkomt dat woorden buiten de container lopen */
+}
+
+/* Layout voor donatie opties */
+.donation-options {
+    display: flex; /* Maakt een flexbox container voor de donatieknoppen */
+    justify-content: space-between; /* Verdeelt de ruimte gelijkmatig tussen de knoppen */
+    margin: 1rem 0; /* Ruimte boven en onder de opties */
+    border: 0.0625rem solid #D04F3B; /* Dunne donkerrode rand rond de opties */
+}
+
+/* Stijling voor elke donatieknop */
+.donation-amount {
+    flex: 1; /* Zorgt ervoor dat elke knop evenveel ruimte inneemt */
+    padding: 0.75rem; /* Voegt interne ruimte toe */
+    background-color: white; /* Witte achtergrond */
+    border-left: 0.0625rem solid #D04F3B; /* Dunne donkerrode linkerrand tussen knoppen */
+    font-weight: bold; /* Vetgedrukte tekst */
+    font-size: 0.875rem; /* Kleinere tekstgrootte */
+    text-align: center; /* Centreert de tekst */
+    cursor: pointer; /* Zorgt voor een pointercursor bij hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Voegt een transitie toe bij hover */
+}
+
+/* Eerste donatieknop zonder linkerrand */
+.donation-amount:first-child {
+    border-left: none; /* Verwijdert de linkerrand van de eerste knop */
+}
+
+/* Custom donatieknop */
+.donation-custom {
+    padding: 1rem 0; /* Voegt verticale padding toe */
+    font-weight: bold; /* Vetgedrukte tekst */
+    background-color: white; /* Witte achtergrond */
+    color: #D04F3B; /* Donkerrode tekstkleur */
+    border: 0.0625rem solid #D04F3B; /* Dunne donkerrode rand */
+    text-align: center; /* Centreert de tekst */
+    cursor: pointer; /* Zorgt voor een pointercursor bij hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Voegt een transitie toe bij hover */
+}
+
+/* Hover-effect voor donatieknoppen */
+.donation-amount:hover, .donation-custom:hover {
+    background-color: #D04F3B; /* Donkerrode achtergrond bij hover */
+    color: white; /* Witte tekst bij hover voor contrast */
+}
+
+/* Focusstijlen voor knoppen en links voor toegankelijkheid */
+button:focus, a:focus {
+    outline: 0.125rem solid #D04F3B; /* Zichtbare focusring voor toegankelijkheid */
+    outline-offset: 0.125rem; /* Ruimte tussen de focusring en het element */
+}
+
+/* Overgangen voor knoppen en links voor een betere gebruikerservaring */
+a, button {
+    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Soepele overgang bij interactie */
+}
+
+/* Hover-effecten voor knoppen en links */
+a:hover, button:hover {
+    color: #D04F3B; /* Verandert de kleur naar donkerrood bij hover */
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.15); /* Toevoegen van een schaduw voor diepte-effect */
+}
+
+/* Hover-effecten voor interactieve knoppen */
+.donation-amount:hover, .donation-custom:hover, .author-button:hover {
+    background-color: #D04F3B; /* Donkerrode achtergrond bij hover */
+    color: white; /* Witte tekst voor duidelijkheid */
+    transform: scale(1.05); /* Vergroot de knop iets bij hover */
+}
