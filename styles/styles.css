@@ -1,3 +1,12 @@
+/* 
+Fonts importeren van Google Fonts:
+Merriweather voor kopteksten, 
+Source Serif Pro voor gewone tekst,
+Inter voor overige elementen zoals buttons.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Source+Serif+Pro:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inter:wght@300;400;500;700&display=swap');
+
 /*
 Project: Redpers
 Ontwikkelaar: Fatima Elhilali
@@ -18,8 +27,8 @@ de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toega
 .notification-container {
     display: flex; /* Flexbox om de items horizontaal uit te lijnen */
     align-items: center; /* Centreert de items verticaal */
+    padding: 1rem; /* Voeg extra witruimte (padding) toe voor ademruimte */
 }
-
 .newsletter {
     display: flex; /* Flexbox om de nieuwsbriefitems horizontaal uit te lijnen */
     align-items: center; /* Centreert de items verticaal */
@@ -29,11 +38,11 @@ de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toega
 
 /* Zoekveld styling */
 .search-container input {
-    padding: clamp(0.25rem, 1vw, 0.5rem) clamp(0.5rem, 1vw, 1rem); /* Responsieve padding */
+    padding: clamp(0.25rem, 1vw, 0.75rem); /* Vergroot padding voor meer witruimte */
     border: 1px solid #ccc; /* Grijze rand om het zoekveld */
     border-radius: 0.25rem; /* Afgeronde hoeken voor het zoekveld */
     width: clamp(8rem, 10vw, 15rem); /* Responsieve breedte */
-    height: clamp(1rem, 2vh, 2rem); /* Responsieve hoogte */
+    height: clamp(1.5rem, 2vh, 2.5rem); /* Iets grotere hoogte voor meer ruimte */
     background-color: #ffffff; /* Witte achtergrond voor het zoekveld */
     box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1); /* Lichte schaduw voor een zwevend effect */
     outline: none; /* Verwijdert de standaard focus-outline van browsers */
@@ -44,7 +53,7 @@ de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toega
 .search-container .search-icon {
     font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsieve grootte van het zoekicoon */
     margin-right: clamp(0.5rem, 1vw, 1rem); /* Responsieve marge rechts */
-    color: #E15746; /* Kleur van het zoekicoon */
+    color: #E15746; /* Accentkleur voor zoekicoon */
     cursor: pointer; /* Verandert de cursor naar een pointer bij hover */
     transition: transform 0.3s ease, color 0.3s ease; /* Zachte overgang bij hover voor kleur en schaal */
 }
@@ -67,7 +76,7 @@ de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toega
 /* Logo container stijl */
 .logo-container {
     text-align: center; /* Centreert de inhoud van de logo-container */
-    padding: clamp(1rem, 3vh, 2rem) 0; /* Responsieve padding boven en onder */
+    padding: clamp(2rem, 3vh, 3rem) 0; /* Vergroot padding voor witruimte */
     background-color: #f4f4f4; /* Lichtgrijze achtergrondkleur voor de logo-sectie */
 }
 
@@ -112,7 +121,7 @@ de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toega
     height: 100%; /* Bedekt de volledige hoogte van het scherm */
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparante zwarte achtergrond */
     z-index: 1000; /* Zorgt ervoor dat de overlay boven andere elementen staat */
-    transition: opacity 0.4s ease; /* Zachte overgang voor het zichtbaar maken */
+    /* Geen transitie meer voor het tonen van de overlay */
 }
 
 .dropdown {
@@ -123,20 +132,20 @@ de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toega
     height: 100%; /* Volledige hoogte van het scherm */
     background-color: #141415; /* Donkere achtergrond voor het dropdown menu */
     transform: translateX(-100%); /* Verbergt het menu buiten het scherm */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Zachte overgang bij het tonen van het menu */
     z-index: 1100; /* Zorgt ervoor dat het menu boven de overlay verschijnt */
     opacity: 0; /* Maakt het menu onzichtbaar */
+    /* Geen transitie meer voor het tonen van het dropdown-menu */
 }
 
-/* Wanneer de class 'show' wordt toegevoegd, wordt het menu zichtbaar */
+/* Wanneer de class 'show' wordt toegevoegd, wordt het menu en de overlay zichtbaar */
 .overlay.show {
     display: block; /* Maakt de overlay zichtbaar */
-    opacity: 1; /* Volledig zichtbare overlay */
+    opacity: 1; /* Directe zichtbaarheid van de overlay */
 }
 
 .dropdown.show {
-    transform: translateX(0); /* Verplaatst het menu naar binnen in beeld */
-    opacity: 1; /* Volledig zichtbare dropdown */
+    transform: translateX(0); /* Directe weergave van het menu, zonder transitie */
+    opacity: 1; /* Directe zichtbaarheid van het menu */
 }
 
 /* Stijl voor de sluitknop */
@@ -174,19 +183,13 @@ de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toega
     padding: clamp(0.5rem, 2vh, 1rem) clamp(0.5rem, 2vw, 1rem); /* Responsieve padding rondom elk item */
 }
 
-/* Link styling met 3D hover effect */
+/* Link styling zonder animatie */
 .item a {
     color: #ffffff; /* Witte kleur voor de links */
     text-decoration: none; /* Verwijdert de onderstreping van links */
     font-size: clamp(0.875rem, 2vw, 1rem); /* Responsieve grootte van de links */
     display: block; /* Links vullen de volledige breedte van de container */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Zachte overgang voor hover effecten */
-}
-
-/* 3D Hover effect op de item links */
-.item a:hover {
-    transform: perspective(300px) rotateX(15deg) rotateY(-15deg) scale(1.1); /* 3D hover effect */
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5); /* Schaduw voor diepte-effect */
+    /* Geen transities meer voor hover effecten */
 }
 
 /* Stijl van de separator */
@@ -235,9 +238,9 @@ de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toega
 
 /* Focusring voor toetsenbordgebruikers */
 .secondary-item a:focus {
-    outline: 3px solid #ffbf47; /* Voeg een gele outline toe bij focus */
+    outline: 3px solid #d35944; /* Voeg een gele outline toe bij focus */
     outline-offset: 3px; /* Zorg ervoor dat de outline een beetje buiten de link staat */
-    box-shadow: 0 0 0 3px rgba(255, 191, 71, 0.5); /* Subtiele schaduw om de focusring extra te benadrukken */
+    box-shadow: 0 0 0 3px rgba(255, 102, 71, 0.5); /* Subtiele schaduw om de focusring extra te benadrukken */
 }
 
 /* Separator tussen de items */
@@ -248,6 +251,13 @@ de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toega
     margin: 0 clamp(0.5rem, 1vw, 1rem);
     margin-top: clamp(0.25rem, 1vh, 0.625rem);
 }
+
+@media (max-width: 768px) {
+    .secondary-navbar {
+        display: none; /* Verberg de secundaire navigatiebalk op schermen smaller dan 768px */
+    }
+}
+
 
 
 /* Stijl voor de view-counter (aantal keer gelezen) */
@@ -261,7 +271,7 @@ de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toega
     max-width: 100%; /* Beperkt de breedte tot een maximum van 100% van de container */
     margin-left: 1rem; /* Plaatst de counter een beetje naar links */
     margin-right: auto; /* Zorgt ervoor dat de counter niet naar het midden wordt gecentreerd */
-    padding: 0.5rem 1rem; /* Responsieve padding */
+    padding: 1rem; /* Voeg extra padding toe voor witruimte */
     text-align: left; /* Tekst wordt links uitgelijnd */
     position: relative; /* Voor positionering van ::before en ::after */
 }
@@ -316,7 +326,7 @@ de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toega
 
 /* Titel van het artikel met responsieve styling */
 article h1.article-title {
-    font-family: 'Tiempos Headline', serif; /* Gebruik een serif-lettertype voor de titel */
+    font-family: 'Merriweather', serif; /* Gebruik een serif-lettertype voor de titel */
     font-size: clamp(1.5rem, 5vw, 2.8125rem); /* Zorgt voor responsieve tekstgrootte */
     font-weight: 900; /* Maakt de tekst vetgedrukt */
     line-height: 0.9; /* Verkleint de ruimte tussen regels */
@@ -403,19 +413,20 @@ article h1.article-title {
     text-transform: uppercase; /* Alle tekst in hoofdletters voor consistentie */
     letter-spacing: 0.1rem; /* Vergroot de afstand tussen de letters */
     padding: 0.5rem 0; /* Voegt ruimte boven en onder de tekst toe */
-    border-bottom: 0.0625rem solid black; /* Zwarte onderrand voor scheiding */
+    border-bottom: clamp(0.03125rem, 0.15vw, 0.0625rem) solid rgb(218, 100, 100); /* Responsieve onderrand */
 }
 
 /* Voegt een bovenrand toe aan het eerste blok van de extra-info sectie */
 .extra-info .top-border {
-    border-top: 0.0625rem solid black; /* Zwarte bovenrand voor scheiding */
+    border-top: clamp(0.03125rem, 0.15vw, 0.0625rem) solid rgb(218, 100, 100); /* Responsieve bovenrand */
 }
 
 /* Laatste informatieblok binnen extra-info met extra ruimte boven */
 .extra-info .article-info:last-child {
-    border-bottom: 0.0625rem solid black; /* Zwarte onderrand voor scheiding */
+    border-bottom: clamp(0.03125rem, 0.15vw, 0.0625rem) solid rgb(218, 100, 100); /* Responsieve onderrand voor het laatste blok */
     margin-top: 0.4rem; /* Extra ruimte boven het laatste blok */
 }
+
 
 /* Categorie tekst binnen elk informatieblok */
 .extra-info .category {
@@ -455,6 +466,7 @@ article h1.article-title {
 }
 
 /* Kopjes binnen de artikelinhoud */
+/* Kopjes binnen de artikelinhoud */
 h2 {
     font-family: "Inter", sans-serif; /* Gebruik een sans-serif lettertype voor kopjes */
     font-size: clamp(0.875rem, 2.5vw, 1.125rem); /* Responsieve tekstgrootte */
@@ -478,7 +490,7 @@ h2 {
 /* Aanhalingsteken styling binnen de quote */
 .quote-section::before {
     content: '“'; /* Voegt een aanhalingsteken toe */
-    font-family: "Tiempos Headline", serif; /* Gebruik een serif-lettertype */
+    font-family: 'Merriweather', serif; /* Gebruik een serif-lettertype */
     font-size: clamp(2.5rem, 8vw, 6rem); /* Responsieve grootte voor het aanhalingsteken */
     color: #D04F3B; /* Oranje-rode kleur voor het aanhalingsteken */
     position: absolute; /* Positioneert het aanhalingsteken absoluut */
@@ -488,7 +500,7 @@ h2 {
 
 /* Titel van de quote sectie */
 .quote-title {
-    font-family: "Tiempos Headline", serif; /* Gebruik een serif-lettertype */
+    font-family: "Merriweather", serif; /* Gebruik een serif-lettertype */
     font-size: clamp(1.75rem, 4vw, 2.25rem); /* Responsieve tekstgrootte voor de titel */
     font-weight: bold; /* Maakt de tekst vetgedrukt */
     line-height: clamp(1.75rem, 4vw, 2.5rem); /* Zorgt voor voldoende ruimte tussen regels */
@@ -596,8 +608,10 @@ button:focus, a:focus {
 
 /* Overgangen voor knoppen en links voor een betere gebruikerservaring */
 a, button {
-    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Soepele overgang bij interactie */
+    font-family: "Inter", sans-serif; /* Consistentie in typografie */
+    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Soepele overgangen */
 }
+
 
 /* Hover-effecten voor knoppen en links */
 a:hover, button:hover {
@@ -721,18 +735,18 @@ a:hover, button:hover {
 
 /* Stijl voor de "Meer" buttons */
 .more-article-button {
-    background-color: white; /* Witte achtergrond voor de knop */
-    border: 0.0625rem solid #D04F3B; /* Dunne donkerrode rand */
-    padding: 0.5rem 1rem; /* Padding binnen de knop */
+    background-color: #E15746; /* Gebruik de accentkleur voor de knopachtergrond */
+    border: none; /* Geen randen voor de knop */
+    padding: 0.75rem 1.5rem; /* Vergroot de knop en creëer witruimte */
     font-weight: bold; /* Vetgedrukte tekst */
-    font-family: "Inter", sans-serif; /* Gebruik het Inter-lettertype */
-    font-size: clamp(0.75rem, 1.5vw, 0.875rem); /* Responsieve tekstgrootte */
-    color: #D04F3B; /* Donkerrode tekstkleur */
-    cursor: pointer; /* Verander de muisaanwijzer naar een pointer bij hover */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Overgang bij hover */
-    width: 100%; /* De knop neemt de volledige breedte van de container in */
-    text-align: center; /* Zorg dat de tekst gecentreerd is */
+    font-family: "Inter", sans-serif; /* Modern sans-serif lettertype voor leesbaarheid */
+    font-size: clamp(1rem, 1.5vw, 1.25rem); /* Duidelijke, grote knoptekst */
+    color: white; /* Witte tekst voor sterk contrast */
+    cursor: pointer; /* Pointer cursor voor interactie */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Soepele overgangen voor hover-effect */
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1); /* Subtiele schaduw voor diepte */
 }
+
 
 /* Hover-effect voor de "Meer" buttons */
 .more-article-button:hover {
@@ -746,6 +760,99 @@ a:hover, button:hover {
         flex: 1 1 100%; /* Laat elk artikel de volledige breedte innemen op kleinere schermen */
     }
 }
+
+
+
+/* Popup Overlay (achtergrond die het scherm dimt) */
+.popup-overlay {
+    position: fixed; /* Zorg ervoor dat de overlay de hele viewport bedekt */
+    top: 0; /* Uitlijnen aan de bovenkant van de viewport */
+    left: 0; /* Uitlijnen aan de linkerkant van de viewport */
+    width: 100vw; /* Volledige breedte van de viewport */
+    height: 100vh; /* Volledige hoogte van de viewport */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparante donkere achtergrond */
+    display: none; /* Verberg de popup standaard */
+    justify-content: center; /* Centreer de inhoud horizontaal */
+    align-items: center; /* Centreer de inhoud verticaal */
+    z-index: 1000; /* Zorg ervoor dat de overlay boven andere elementen staat */
+}
+
+/* Toon de popup wanneer de class 'show' wordt toegevoegd */
+.popup-overlay.show {
+    display: flex; /* Verander de weergave naar flex om de overlay zichtbaar te maken */
+}
+
+/* Popup Content (het daadwerkelijke popupvenster) */
+.popup-content {
+    background-color: #141415; /* Achtergrondkleur */
+    box-shadow: 0 clamp(0.9375rem, 1.5vw, 1rem) clamp(1.875rem, 5vw, 1.875rem) rgba(128, 128, 128, 0.31); /* Schaduw voor diepte met clamp */
+    text-align: center; /* Centreer de tekst */
+    border-radius: clamp(0.3125rem, 0.5vw, 0.3125rem); /* Ronde hoeken met clamp */
+    margin: clamp(1.875rem, 3vw, 2rem) auto; /* Marges voor de popup met clamp */
+    padding: clamp(1rem, 2vw, 1rem); /* Padding rond de inhoud met clamp */
+    max-width: clamp(30rem, 50vw, 30rem); /* Maximale breedte van de popup */
+    width: 100%; /* Gebruik de volledige beschikbare breedte */
+}
+
+/* Sluitknop van de popup */
+.popup-close {
+    position: absolute; /* Absolute positionering zodat het onafhankelijk beweegt van de andere elementen */
+    top: clamp(0.9375rem, 1vw, 1rem); /* Bovenmarge met clamp */
+    right: clamp(0.9375rem, 1vw, 1rem); /* Rechtermarge met clamp */
+    background: none; /* Geen achtergrond voor de sluitknop */
+    border: none; /* Geen rand voor de sluitknop */
+    font-size: clamp(1rem, 2vw, 1.5rem); /* Lettergrootte voor de sluitknop met clamp */
+    cursor: pointer; /* Verander de cursor naar een pointer bij hover */
+    color: #ffffff; /* Witte tekstkleur voor de sluitknop */
+}
+
+/* Hover-effect voor de sluitknop */
+.popup-close:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Licht donkerdere achtergrond bij hover */
+}
+
+/* Koptekst in de popup */
+.popup-content h3 {
+    font-family: 'Playfair Display', serif; /* Lettertype voor de koptekst */
+    font-size: clamp(2rem, 4vw, 3.5rem); /* Grootte van de koptekst met clamp */
+    margin: 0; /* Geen marge voor de koptekst */
+    color: #fff; /* Witte kleur voor de koptekst */
+}
+
+/* Paragraaftekst in de popup */
+.popup-content p {
+    font-family: "Source Serif Pro", sans-serif; /* Lettertype voor de paragraaf */
+    font-size: clamp(0.875rem, 1.5vw, 1rem); /* Grootte van de paragraaftekst met clamp */
+    color: #ffffff; /* Kleur voor de paragraaftekst */
+    margin: clamp(0.25rem, 1vw, 1rem) 0; /* Marges voor de paragraaf met clamp */
+    letter-spacing: 0.1rem; /* Letterafstand */
+}
+
+/* Knop in de popup */
+.popup-button {
+    background-color: #ffffff; /* Witte achtergrond voor de knop */
+    box-shadow: 0 clamp(0.75rem, 1vw, 0.75rem) clamp(1.5rem, 3vw, 1.5rem) rgba(251, 145, 152, 0.5); /* Zachtere schaduw voor diepte met clamp */
+    font-family: 'Abel', sans-serif; /* Lettertype voor de knop */
+    padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem); /* Responsieve padding voor de knop met clamp */
+    margin: clamp(1rem, 2vw, 1.5rem) 0 0 0; /* Marges voor de knop met clamp */
+    border-radius: 0; /* Vierkante knoppen */
+    font-size: clamp(1rem, 2vw, 1.2rem); /* Grootte van de knoptekst met clamp */
+    cursor: pointer; /* Verander de cursor naar een pointer bij hover */
+    color: #000000; /* Zwarte tekstkleur */
+    outline: none; /* Geen rand */
+    border: none; /* Geen rand voor de knop */
+    transition: 0.3s linear; /* Overgang voor hover-effect */
+}
+
+/* Hover-effect voor de knop */
+.popup-button:hover {
+    transform: translateY(2px); /* Lichte beweging naar beneden bij hover */
+}
+
+.popup-button:active {
+    transform: translateY(5px); /* Beweging naar beneden bij klikken */
+}
+
 
 /* Footer styling */
 .responsive-footer {
@@ -837,6 +944,26 @@ a:hover, button:hover {
 }
 
 
+@media (max-width: 768px) {
+    /* Laat de kolommen stapelen op kleinere schermen */
+    .footer-content {
+        flex-direction: column; /* Kolommen onder elkaar plaatsen */
+        align-items: flex-start; /* Zorg dat de inhoud naar links uitlijnt */
+    }
 
+    .footer-logo-section {
+        flex-basis: 100%; /* Logo-sectie neemt de volledige breedte in op mobiel */
+        text-align: center; /* Centreer het logo op mobiel */
+    }
 
+    .footer-columns {
+        flex-basis: 100%; /* Kolommen nemen volledige breedte in */
+        flex-direction: column; /* Kolommen onder elkaar stapelen */
+    }
+
+    .footer-column {
+        flex-basis: 100%; /* Elke kolom neemt volledige breedte in op mobiel */
+        margin-bottom: 1.5rem; /* Extra ruimte tussen de kolommen */
+    }
+}
 
