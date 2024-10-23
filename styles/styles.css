@@ -73,6 +73,14 @@ de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toega
     border: none; /* Geen border bij hover */
 }
 
+/* zorgt ervoor dat de standaard blauwe focus-ring van de browser wordt verwijderd bij de search img */
+input:focus, button:focus {
+    outline: none; /* Verwijder de standaard focus-styling */
+    border-color: #E15746; 
+    box-shadow: 0 0 5px rgba(225, 87, 70, 0.5); /* Voeg je eigen visuele indicatie toe */
+}
+
+
 /* Logo container stijl */
 .logo-container {
     text-align: center; /* Centreert de inhoud van de logo-container */
@@ -95,6 +103,14 @@ de leesbaarheid en bruikbaarheid, ongeacht de grootte van het scherm of de toega
     padding: clamp(0.5rem, 2vh, 1rem) clamp(1rem, 5vw, 2rem); /* Responsieve padding */
     background-color: #141415; /* Donkere achtergrondkleur voor de navbar */
 }
+
+
+input:focus, button:focus {
+    outline: none; /* Verwijder de standaard focus-styling */
+    border-color: #E15746; /* Je eigen accentkleur */
+    box-shadow: 0 0 5px rgba(225, 87, 70, 0.5); /* Voeg je eigen visuele indicatie toe */
+}
+
 
 /* Menu-knop stijl */
 .menu-button {
