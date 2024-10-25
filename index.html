@@ -1,5 +1,5 @@
 <!-- 
-Project: Redpers
+Project: Redpers - Toegankelijkheid en Responsiviteit
 Ontwikkelaar: [Fatima el Hilali]
 Beschrijving: Deze code is ontworpen om een toegankelijke en responsieve website te creëren voor het platform Redpers. 
 De website biedt een gebruiksvriendelijke ervaring voor verschillende schermformaten en houdt rekening met toegankelijkheidsbehoeften.
@@ -7,8 +7,6 @@ Speciale aandacht is besteed aan toetsenbordnavigatie, zodat gebruikers met bepe
 tabtoets en andere toetsenbordfuncties. Dit omvat het verbeteren van de focusvolgorde, semantische HTML, en visuele focusindicatoren om de interactie 
 te ondersteunen voor schermlezers en gebruikers die geen muis gebruiken.
 -->
-
-
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -30,7 +28,9 @@ te ondersteunen voor schermlezers en gebruikers die geen muis gebruiken.
                 &#9776;
                 <span class="visually-hidden">Menu</span> <!-- Verbergt visuele tekst, maar houdt deze toegankelijk voor schermlezers -->
             </button>
-            <section class="notification-container">
+
+            <!-- Notificatie container -->
+            <div class="notification-container">
                 <span class="newsletter">
                     <span class="fade-in-text">Nieuwsbrief</span>
                 </span>
@@ -42,12 +42,13 @@ te ondersteunen voor schermlezers en gebruikers die geen muis gebruiken.
                         🔍 <!-- Icoon als visueel element -->
                     </button>
                 </form>
-            </section>
+            </div>
         </nav>
 
         <!-- Overlay voor mobiel menu, verborgen door default met 'hidden' -->
         <div id="overlay" class="overlay" hidden>
             <section class="dropdown">
+                <h2 class="visually-hidden">Navigatie Menu</h2> <!-- Visueel verborgen kop voor toegankelijkheid -->
                 <button class="close-button" id="close-button">
                     &times;
                     <span class="visually-hidden">Sluiten</span> <!-- Verbergt visueel, maar toegankelijk voor schermlezers -->
@@ -66,13 +67,13 @@ te ondersteunen voor schermlezers en gebruikers die geen muis gebruiken.
             </section>
         </div>
 
-        <!-- Logo-sectie -->
-        <section class="logo-container">
-            <img src="assets/logo.jpg" alt="Logo van Redpers" class="logo"> <!-- Beschrijvende alt-tekst voor toegankelijkheid -->
-        </section>
+        <!-- Logo-container-->
+        <div class="logo-container">
+            <img src="assets/logo.jpg" alt="Redpers" class="logo"> <!-- Voor het logo -->
+        </div>
 
         <!-- Secundaire navigatiebalk -->
-        <section class="secondary-navbar">
+        <div class="secondary-navbar">
             <ul class="secondary-nav-list">
                 <li class="secondary-item"><a href="https://redpers.nl/">Voorpagina</a></li>
                 <li class="secondary-separator"></li>
@@ -92,11 +93,11 @@ te ondersteunen voor schermlezers en gebruikers die geen muis gebruiken.
                 <li class="secondary-separator"></li>
                 <li class="secondary-item"><a href="https://redpers.nl/category/rubriek/wetenschap/">Wetenschap</a></li>
             </ul>
-        </section>
+        </div>
     </header>
 
     <main>
-        <!-- Artikel sectie, semantisch correcte h1-kop voor de titel van het artikel -->
+        <!-- Artikel sectie, met semantisch correcte h1-kop voor de titel van het artikel -->
         <article class="article">
             <h1 id="article-title" class="article-title">
                 Carrière maken als Amsterdamse polaroidfotograaf: ‘Soms is het een strijd om de nacht’
@@ -104,7 +105,7 @@ te ondersteunen voor schermlezers en gebruikers die geen muis gebruiken.
 
             <!-- Afbeelding met alt-tekst voor toegankelijkheid -->
             <figure>
-                <img src="assets/article.png" alt="Een Amsterdamse polaroidfotograaf die een camera vasthoudt en fotografeert." class="article-image">
+                <img src="assets/article.png" alt="Amsterdamse polaroidfotograaf met camera" class="article-image"> <!-- Beschrijft de actie van de fotograaf -->
             </figure>
             
             <!-- View-counter, maakt gebruik van tekst in plaats van afbeeldingen -->
@@ -121,8 +122,8 @@ te ondersteunen voor schermlezers en gebruikers die geen muis gebruiken.
                 Met een grote glimlach en een camera leggen de polaroidfotografen het Amsterdamse nachtleven vast op instax fotopapier. Maar hoe ziet hun leven eruit achter de lens? “In de stad kan ik mijn verdriet weglachen.”
             </p>
 
-            <!-- Extra informatie over de auteur en leestijd -->
-            <section class="extra-info">
+            <!-- Extra informatie over de auteur en leestijd, veranderd naar <div> aangezien er geen kop nodig is -->
+            <div class="extra-info">
                 <div class="article-info top-border">
                     <span class="category">DOOR:</span>
                     <span class="author">IRIS VAN BOVEN</span>
@@ -131,7 +132,7 @@ te ondersteunen voor schermlezers en gebruikers die geen muis gebruiken.
                     <span class="category">LEESTIJD:</span>
                     <span class="reading-time">4 MIN</span>
                 </div>
-            </section>
+            </div>
 
             <!-- Voortgangsbalk, optioneel voor visuele feedback -->
             <div id="progress-bar-container">
@@ -140,59 +141,22 @@ te ondersteunen voor schermlezers en gebruikers die geen muis gebruiken.
 
             <!-- Hoofdinhoud van het artikel -->
             <section class="article-content">
+                <h2>Carrière maken</h2> <!-- Kopje voor deze sectie -->
                 <p>
-                    “Foto? Willen jullie een foto?,” vraagt één van de polaroidfotografen die door het centrum van Amsterdam zwerft. In zijn ene hand houdt hij een drankje vast, en met zijn andere begroet hij de mensen op de dansvloer. Een paar meter verderop stapt een andere fotograaf met hetzelfde doel de horecazaak binnen. Naast dat er een polaroidcamera om zijn nek hangt, houdt hij een bos rozen vast en neongekleurde speeltjes met flitslichten. Ook hij probeert geld te verdienen, maar komt niet verder dan de ingang. De serveerster verwijst hem vriendelijk naar de deur. “Jij bent hier niet welkom, sorry. Alleen onze vaste fotografen mogen hier foto’s maken.”
-                </p>
-                
-                <p>
-                    De Amsterdamse polaroidfotografen staan symbool voor het nachtleven van Amsterdam. In totaal zwerven er tientallen door het centrum. Ze hebben veelal een Pakistaanse of Bengaalse achtergrond, maar veel meer dan dat ze foto’s maken is er eigenlijk niet over ze bekend. Waar komen ze vandaan? Waar wonen ze? En nog interessanter: hoe komen ze aan hun camera? “Het gaat om een lang en gevoelig verleden,” vertelt Abdur (43), een van de drie polaroidfotografen die zijn verhaal heeft gedeeld met <i>Red Pers</i>.
+                    “De Pijp is écht de place to be om foto’s te verkopen,” zegt Kiran (42), die vanwege zijn onzekere verblijfsstatus in Nederland anoniem wil blijven, wanneer hij vertelt over zijn werk als polaroidfotograaf. Met zijn kleine postuur, wijde broek en zwarte jas ziet hij eruit als het klassieke stereotype polaroidfotograaf die rondzwerft in Amsterdam. Toch is hij een opvallende verschijning in de stad. Met meer dan 20 jaar ervaring als polaroidfotograaf gaat hij vrijwel niet meer anoniem over straat. De liefde van menig Amsterdammer is groot voor Kiran. Tijdens de coronacrisis werd er op initiatief van verschillende cafés een inzamelingsactie gestart om hem financieel te ondersteunen, met als slogan: “De Pijp is de Pijp niet zonder Kiran. We kunnen hem niet missen.”
                 </p>
             </section>
 
-            <!-- Sectie over carrière van een fotograaf -->
-            <section class="article-content">
-                    <h2>Carrière maken</h2> <!-- Kopje voor deze sectie -->
-                    <p>
-                        “De Pijp is écht de place to be om foto’s te verkopen,” zegt Kiran (42), die vanwege zijn onzekere verblijfsstatus in Nederland anoniem wil blijven, wanneer hij vertelt over zijn werk als polaroidfotograaf. Met zijn kleine postuur, wijde broek en zwarte jas ziet hij eruit als het klassieke stereotype polaroidfotograaf die rondzwerft in Amsterdam. Toch is hij een opvallende verschijning in de stad. Met meer dan 20 jaar ervaring als polaroidfotograaf gaat hij vrijwel niet meer anoniem over straat. De liefde van menig Amsterdammer is groot voor Kiran. Tijdens de coronacrisis werd er op initiatief van verschillende cafés een inzamelingsactie gestart om hem financieel te ondersteunen, met als slogan: “De Pijp is de Pijp niet zonder Kiran. We kunnen hem niet missen.”
-                    </p>
-    
-                    <p>
-                        Kiran, die momenteel verblijft in een tijdelijke woning van Vluchtelingenwerk in Amsterdam West, beweert zijn camera te hebben gekocht bij de Mediamarkt toen hij voor het eerst aan de slag ging. Zijn start was lastig: “Ik ben meerdere keren de tent uitgeramd door andere fotografen toen ik naamsbekendheid kreeg. Ze waren bang dat ik hun werk zou stelen.” Toen hij op het Gerard Douplein in elkaar werd geslagen door een andere fotograaf, sloeg de twijfel toe om zijn – toen nog – korte carrière als polaroidfotograaf stop te zetten. “Soms is het een strijd om de nacht.”
-                    </p>
-            </section>
-
-            <!-- Citaatsectie met blokquote -->
+            <!-- Citaatsectie met blokquote, inclusief visueel verborgen kop voor toegankelijkheid -->
             <section class="quote-section">
+                <h2 class="visually-hidden">Citaat</h2> <!-- Visueel verborgen kop voor toegankelijkheid -->
                 <blockquote>
                     <p class="quote-title">
                         ‘Het wordt niet gewaardeerd<br> als ik zomaar foto’s maak in<br> een andere wijk’
                     </p>
                 </blockquote>
                 <p class="quote-content">
-                    Volgens Kiran zijn er geen onderlinge afspraken zwart-wit op papier gedrukt. “Er is geen manager,” zegt hij met een serieus gezicht. “De cafés bepalen wie waar naar binnen mag, maar er zijn wel normen en waarden. Het wordt niet gewaardeerd als ik zomaar foto’s maak in een andere wijk.” Een van zijn conculega’s, Abdur, verkoopt foto’s in de binnenstad, maar neemt soms ook een paar straten mee van de wijk waar Kiran werkt. “Als Kiran al langs is geweest in een van de cafés, dan weet ik zeker dat er niks meer te verdienen valt,” vertelt hij met een zucht. Rahul (47), die ook vanwege zijn onzekere verblijfsstatus alleen anoniem wil antwoorden, heeft niet zoveel last van concurrentie. “Ik ga lekker mijn eigen gang,” zegt hij met een verlegen glimlach.
-                </p>
-            </section>
-
-            <!-- Extra informatie over het nachtleven van de fotografen -->
-            <section class="article-content">
-                <h2>Het nachtleven</h2>
-                <p>
-                    De gemiddelde polaroidfoto kost vijf euro en dat gaat volgens Abdur direct in de zak van de fotograaf. Toch is het niet makkelijk rondkomen, benadrukt hij. “Gemiddeld verdienen we maar tachtig euro op een avond.” Naast de lange nachten, een laag maandinkomen en dronken mensen die smeken om korting, kan het werk van een polaroidfotograaf ook best leuk zijn, vertelt Abdur. “Je wil niet weten wat ik allemaal heb gezien!”, zegt hij lachend als hij terugdenkt aan de afgelopen tien jaar.
-                </p>
-                <p>
-                    Abdur werkt niet alleen in de binnenstad, maar fotografeert ook op boten tijdens Koningsdag en wordt wekelijks uitgenodigd voor privéfeestjes en diners. “Ik heb heel veel gekke en dronken mensen gezien,” zegt hij lachend.
-                </p>
-            </section>
-
-            <!-- Citaat over emoties en het nachtleven -->
-            <section class="quote-section">
-                <blockquote>
-                    <p class="quote-title">
-                        ‘In de stad kan ik mijn verdriet weglachen’
-                    </p>
-                </blockquote>
-                <p class="quote-content">
-                    Volgens Abdur komen de meeste fotografen uit Pakistan of Bangladesh. “We zijn vrienden, collega’s, maar ook concurrenten.” Hoewel een enkeling van de fotografen een verblijfsvergunning heeft, benadrukt hij dat het merendeel van deze groep ongedocumenteerd is. Kiran is één van de polaroidfotografen die momenteel in afwachting is van de IND voor een verblijfsvergunning. “Ieder jaar hoop ik positief nieuws te ontvangen,” zegt hij. Vorig jaar verloor hij zijn moeder en kon hij tot zijn teleurstelling niet naar Bangladesh voor de uitvaart. “Ik voel me opgesloten in Nederland.” Ondanks de stress en pijn die hij ervaart, geeft het Amsterdamse nachtleven hem energie. “Vorig jaar zat ik nog een aantal maanden vast in de gevangenis, maar ik probeer de pijn te vergeten. In de stad kan ik mijn verdriet weglachen.”
+                    Volgens Kiran zijn er geen onderlinge afspraken zwart-wit op papier gedrukt. “Er is geen manager,” zegt hij met een serieus gezicht. “De cafés bepalen wie waar naar binnen mag, maar er zijn wel normen en waarden. Het wordt niet gewaardeerd als ik zomaar foto’s maak in een andere wijk.”
                 </p>
             </section>
 
@@ -234,7 +198,7 @@ te ondersteunen voor schermlezers en gebruikers die geen muis gebruiken.
             <section class="author-section">
                 <div class="author-box">
                     <h2>Over de auteur:</h2>
-                    <img src="assets/iris.jpg" alt="Foto van Iris van Boven" class="author-photo">
+                    <img src="assets/iris.jpg" alt="Iris van Boven" class="author-photo"> <!-- Geeft simpelweg de naam van de persoon weer -->
                     <p>
                         Iris van Boven (1997, zij/haar) studeerde Internationale Betrekkingen aan de Universiteit van Amsterdam. 
                         Ze is breed geïnteresseerd en vooral nieuwsgierig naar het persoonlijke verhaal achter het nieuws. 
@@ -250,7 +214,7 @@ te ondersteunen voor schermlezers en gebruikers die geen muis gebruiken.
                 <h2>Lees ook:</h2>
                 <div class="related-articles">
                     <div class="article-item">
-                        <img src="assets/artikel1.jpg" alt="Afbeelding 1" class="article-image">
+                        <img src="assets/artikel1.jpg" alt="Verbindend, fris en vol energie: een duik in de opkomst van maté" class="article-image"> <!-- Gedetailleerde beschrijving van de inhoud -->
                         <p class="article-title"> Verbindend, fris en vol energie:een duik in de opkomst van maté
                         </p>
                         <p class="article-date">7 SEP</p>
@@ -258,14 +222,14 @@ te ondersteunen voor schermlezers en gebruikers die geen muis gebruiken.
                     </div>
 
                     <div class="article-item">
-                        <img src="assets/artikel2.jpg" alt="Afbeelding 2" class="article-image">
+                        <img src="assets/artikel2.jpg" alt="Energieke start van de dag: de opkomst van smoothie bowls" class="article-image"> <!-- Gedetailleerde beschrijving van de inhoud -->
                         <p class="article-title"> Energieke start van de dag:de opkomst van smoothie bowls</p>
                         <P class="article-date"> 1 MRT </P>
                         <button class="more-article-button">Lees meer</button>
                     </div>
 
                     <div class="article-item">
-                        <img src="assets/artikel3.jpg" alt="Afbeelding 3" class="article-image">
+                        <img src="assets/artikel3.jpg" alt="Traditionele smaken herleven: een reis door Turkse theehuizen" class="article-image"> <!-- Gedetailleerde beschrijving van de inhoud -->
                         <p class="article-title">Traditionele smaken herleven:een reis door Turkse theehuizen</p>
                         <p class="article-date"> 20 NOV</p>
                         <button class="more-article-button">Lees meer</button>
@@ -290,7 +254,7 @@ te ondersteunen voor schermlezers en gebruikers die geen muis gebruiken.
     <footer class="responsive-footer">
         <div class="footer-content">
             <div class="footer-logo-section">
-                <img src="assets/logo.jpg" alt="Redpers Logo" class="footer-logo">
+                <img src="assets/logo.jpg" alt="Redpers" class="footer-logo"> <!-- Als tweede logo ook puur decoratief is, overweeg alt="" -->
                 <p class="footer-motto">Podium voor de Journalistiek</p>
             </div>
 
